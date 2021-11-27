@@ -1,1 +1,14 @@
-HELLO WORLD
+
+<form action="szymon.byczek">
+  <input type="email" name="email" value="" required="required" placeholder="ala@gmail.com"/> E-mail<br /><br />
+  <input type="text" name="kod_pocztowy" value="" required="required" pattern="^[0-9]{2}-[0-9]{3}$" placeholder="93-025"/> Kod pocztowy<br /><br />
+  <input type="text" name="numer_nip" value="" required="required" pattern="^((\d{3}[- ]\d{3}[- ]\d{2}[- ]\d{2})|(\d{3}[- ]\d{2}[- ]\d{2}[- ]\d{3}))$" placeholder="728-135-72-39"/> Numer NIP<br /><br />
+  <input type="text" name="numer_dowodu" size="10" maxlength="10" value="" required="required" placeholder="ABC 123456"/> Numer Dowodu osobistego<br /><br />
+  <input type="text" name="adres_ipv4" value="" required="required" pattern="^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$" placeholder="192.168.1.3"/> Adres ipv4<br /><br />
+  <input type="url" name="adres_www" value="" required="required" placeholder="192.168.1.3" placeholder="https://github.com"/> Strona WWW<br /><br />
+  <input type="url" name="adres_www" value="" required="required" placeholder=""/> sciezka<br /><br />
+  <input type="url" name="adres_www" value="" required="required" placeholder="https://github.com"/> sciezka(case insensitive)<br /><br />
+  <input type="url" name="adres_www" value="" required="required" placeholder="https://github.com"/> sciezka(do pliku w katalogu)<br /><br />
+  <input type="text" name="adres_ipv6" value="" required="required" pattern="^(([0-9a-fA-F]{1}|[1-9a-fA-F]{1}[0-9a-fA-F]{1,3}):){7}([0-9a-fA-F]{1}|[1-9a-fA-F]{1}[0-9a-fA-F]{1,3})$" /> Adres ipv6<br /><br />
+  <input type="tel" name="numer_telefonu" value="" required="required" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" /> Numer Telefonu<br /><br />
+</form>
