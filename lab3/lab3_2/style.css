@@ -1,0 +1,27 @@
+.container {
+	height:100hv;
+	width:100hv;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.generateButton{
+    height:100%;
+    width:100%;
+}
+
+.buttonParent{
+	flex-grow:2;
+	height:100hv;
+    width:20%;
+}
+.canvasParent{
+	flex-grow:8;
+	height:100hv;
+    width:80%;
+}
+.myCanvas{
+	height:100%;
+    width:100%;
+}
