@@ -1,0 +1,34 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+
+input:required:invalid, input:focus:invalid {
+  border: 2px solid red;
+}
+
+input:required:valid, input:focus:valid {
+  border: 2px solid green;
+}
+
+</style>
+
+</head>
+<body>
+
+<form action="szymon.byczek">
+  <input type="email" name="email" value="" required="required" placeholder="ala@gmail.com"/> E-mail<br /><br />
+  <input type="text" name="kod_pocztowy" value="" required="required" pattern="^[0-9]{2}-[0-9]{3}$" placeholder="93-025"/> Kod pocztowy<br /><br />
+  <input type="text" name="numer_nip" value="" required="required" pattern="^((\d{3}[- ]\d{3}[- ]\d{2}[- ]\d{2})|(\d{3}[- ]\d{2}[- ]\d{2}[- ]\d{3}))$" placeholder="728-135-72-39"/> Numer NIP<br /><br />
+  <input type="text" name="numer_dowodu" size="10" maxlength="10" value="" required="required" pattern="[A-Za-z]{3} [0-9]{6}" placeholder="ABC 123456"/> Numer Dowodu osobistego<br /><br />
+  <input type="text" name="adres_ipv4" value="" required="required" pattern="^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$" placeholder="192.168.1.3"/> Adres ipv4<br /><br />
+  <input type="url" name="adres_www" value="" required="required" placeholder="https://github.com"/> Strona WWW<br /><br />
+  <input type="text" name="sciezkaCS" value="" required="required" pattern="^[a-zA-Z]:\\(windows|winnt|win|dos|msdos)\\" placeholder="C:\windows\temp lub d:\msdos"/> sciezka<br /><br />
+  <input type="text" name="sciezkaCI" value="" required="required" pattern="^[a-zA-Z]:\\(windows|winnt|win|dos|msdos)\\?[a-zA-Z]*" placeholder="C:\WinDowS\temp lub d:\Msdos"/> sciezka(case insensitive)<br /><br />
+  <input type="text" name="sciezkaETC" value="" required="required" pattern="\/etc\/.+" placeholder="/etc/passwd"/> sciezka(do pliku w katalogu etc)<br /><br />
+  <input type="text" name="adres_ipv6" value="" required="required" pattern="^(([0-9a-fA-F]{1}|[1-9a-fA-F]{1}[0-9a-fA-F]{1,3}):){7}([0-9a-fA-F]{1}|[1-9a-fA-F]{1}[0-9a-fA-F]{1,3})$" placeholder="1050:0:0:0:5:600:300c:326b" /> Adres ipv6<br /><br />
+  <input type="tel" name="numer_telefonu" value="" required="required" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" placeholder = "333-333-333"/> Numer Telefonu<br /><br />
+</form>
+
+</body>
+</html> 
