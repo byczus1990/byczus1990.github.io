@@ -132,38 +132,6 @@ document.getElementById('exampleInputFile').onchange = function(event) {
   }
 };
 
-document.getElementById('btnSave').onclick = function() {
-  if ('Blob' in window) {
-    var fileName = prompt('Please enter file name to save', 'Untitled.txt');
-    if (fileName) {
-      var textToWrite = document.getElementById('exampleTextarea').value.replace(/\n/g, '\r\n');
-      var textFileAsBlob = new Blob([textToWrite], { type: 'text/plain' });
-
-      if ('msSaveOrOpenBlob' in navigator) {
-        navigator.msSaveOrOpenBlob(textFileAsBlob, fileName);
-      } else {
-        var downloadLink = document.createElement('a');
-        downloadLink.download = fileName;
-        downloadLink.innerHTML = 'Download File';
-        if ('webkitURL' in window) {
-          // Chrome allows the link to be clicked without actually adding it to the DOM.
-          downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
-        } else {
-          // Firefox requires the link to be added to the DOM before it can be clicked.
-          downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
-          downloadLink.onclick = destroyClickedElement;
-          downloadLink.style.display = 'none';
-          document.body.appendChild(downloadLink);
-        }
-
-        downloadLink.click();
-      }
-    }
-  } else {
-    alert('Your browser does not support the HTML5 Blob.');
-  }
-};
-
 function destroyClickedElement(event) {
   document.body.removeChild(event.target);
 }

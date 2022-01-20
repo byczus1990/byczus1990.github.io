@@ -12,3 +12,20 @@
   display: inline-block;
   margin: 16px 0 4px 0;
 }
+
+#exampleTextarea {
+	min-width: 500px;
+	min-height: 300px;
+}
+
+#exampleInputFile { display: none; }
+
+#editField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#list {
+  list-style-type: none;
+}
