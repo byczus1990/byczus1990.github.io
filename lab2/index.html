@@ -18,9 +18,6 @@
             <li class="column"  draggable="true">
                 <label for="time_12">Czas w formacie 12 H</label>
                 <input type="time" id="time_12" min="01:00" max="12:59" >
-            </li>
-
-            <li class="column"  draggable="true">
                 <select>Wybierz format
                     <option>PM</option>
                     <option>AM</option>
@@ -38,9 +35,11 @@
             </li>
         </ol>
 
-        <div class = "EditField">
-            <button type="button" id="btnOpen" onclick = 'onOpenClicked()'>Open...</button>
-            <button type="button" id="btnSave" onclick = 'onSaveClicked()'>Save</button>
+        <div id="editField">
+            <section>
+                <button type="button" id="btnOpen" onclick = 'onOpenClicked()'>Otwórz plik</button>
+                <button type="button" id="btnSave" onclick = 'onSaveClicked()'>Zapisz</button>
+            </section>
             <textarea id="exampleTextarea" rows="8"></textarea>
             <input type="file" id="exampleInputFile" accept=".txt,.css">
         </div>
