@@ -1,0 +1,14 @@
+#holder {
+  min-width: 500px;
+  min-height: 200px;
+  border: 4px dashed #e1e1e1;
+}
+
+#holder.hover {
+  border: 4px dashed #0000FF;
+}
+
+#label-holder {
+  display: inline-block;
+  margin: 16px 0 4px 0;
+}
