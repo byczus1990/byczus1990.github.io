@@ -1,43 +1,51 @@
-dragElement(document.getElementById("simpleDate"));
-dragElement(document.getElementById("workingDaysDate"));
-dragElement(document.getElementById("timeFormat12H"));
-dragElement(document.getElementById("formatSelector"));
-dragElement(document.getElementById("timeFormat24H"));
-dragElement(document.getElementById("colorSelector"));
+var dragging = null;
 
-function dragElement(object) {
-  var position1 = 0, position2 = 0, position3 = 0, position4 = 0;
-  if (object) {
-    if (document.getElementById(object.id)) {
-      document.getElementById(object.id).onmousedown = dragMouseDown;
+document.addEventListener('dragstart', function(event) {
+    var target = getLI( event.target );
+    dragging = target;
+    event.dataTransfer.setData('text/plain', null);
+    event.dataTransfer.setDragImage(self.dragging,0,0);
+});
+
+document.addEventListener('dragover', function(event) {
+    event.preventDefault();
+    var target = getLI( event.target );
+    var bounding = target.getBoundingClientRect()
+    var offset = bounding.y + (bounding.height/2);
+    if ( event.clientY - offset > 0 ) {
+       	target.style['border-bottom'] = 'solid 4px blue';
+        target.style['border-top'] = '';
     } else {
-      object.onmousedown = dragMouseDown;
+        target.style['border-top'] = 'solid 4px blue';
+        target.style['border-bottom'] = '';
     }
+});
 
-    function elementDrag(o) {
-      o = o || window.event;
-      o.preventDefault();
-      position1 = position3 - o.clientX;
-      position2 = position4 - o.clientY;
-      position3 = o.clientX;
-      position4 = o.clientY;
-      object.style.top = (object.offsetTop - position2) + "px";
-      object.style.left = (object.offsetLeft - position1) + "px";
-    };
-	
-    function dragMouseDown(o) {
-      o = o || window.event;
-      o.preventDefault();
-      position3 = o.clientX;
-      position4 = o.clientY;
-      document.onmouseup = closeDragElement;
-      document.onmousemove = elementDrag;
-    };
+document.addEventListener('dragleave', function(event) {
+    var target = getLI( event.target );
+    target.style['border-bottom'] = '';
+    target.style['border-top'] = '';
+});
 
+document.addEventListener('drop', function(event) {
+    event.preventDefault();
+    var target = getLI( event.target );
+    if ( target.style['border-bottom'] !== '' ) {
+        target.style['border-bottom'] = '';
+        target.parentNode.insertBefore(dragging, event.target.nextSibling);
+    } else {
+        target.style['border-top'] = '';
+        target.parentNode.insertBefore(dragging, event.target);
+    }
+});
 
-    function closeDragElement() {
-      document.onmouseup = null;
-      document.onmousemove = null;
-    };
-  };
-};
+function getLI( target ) {
+    while ( target.nodeName.toLowerCase() != 'li' && target.nodeName.toLowerCase() != 'body' ) {
+        target = target.parentNode;
+    }
+    if ( target.nodeName.toLowerCase() == 'body' ) {
+        return false;
+    } else {
+        return target;
+    }
+}
